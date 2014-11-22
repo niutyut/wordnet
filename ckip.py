@@ -2,7 +2,7 @@
 import socket
 from xml.dom.minidom import parseString
 
-#plz apply your own CKIP segmentation username
+#plz apply your own CKIP segmentation username from http://ckipsvr.iis.sinica.edu.tw
 username='your username'
 password='your password'
 
