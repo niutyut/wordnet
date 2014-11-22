@@ -3,8 +3,8 @@ import socket
 from xml.dom.minidom import parseString
 
 #plz apply your own CKIP segmentation username
-username='corpustag'
-password='ntucorpus'
+username='your username'
+password='your password'
 
 def seg(input):
     s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
