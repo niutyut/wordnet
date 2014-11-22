@@ -7,7 +7,8 @@ Chinese Wordnet 的 Python NLTK 模組
 取得第一個詞意：
 from nltk.corpus import wordnet
 
-wordnet.all_synsets()[0].definition
+wordnet.all_synsets()[0].definition   #nltk 2.0
+wordnet.all_synsets()[0].definition() #nltk 3.0
 
 CKIP 中研院斷詞服務
 ======

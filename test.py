@@ -7,8 +7,10 @@ def similar(def1,def2):
         if w in def2:sum+=1
     return sum
 
-synsets=list(wordnet.all_synsets())
-
-def1=seg(synsets[0].definition())
-def2=seg(synsets[1].definition())
-print ' '.join(def1),' '.join(def2),similar(def1,def2)
+if __name__=='__main__':
+    synsets=list(wordnet.all_synsets())
+#    def1=seg(synsets[0].definition())
+#    def2=seg(synsets[1].definition())
+    def1=seg(synsets[0].definition)
+    def2=seg(synsets[1].definition)
+    print ' '.join(def1),' '.join(def2),similar(def1,def2)
