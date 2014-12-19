@@ -23,3 +23,7 @@ def lookup_sense(lemma_id):
 print lookup_pos('080601')
 print lookup_lemma('080601')
 print lookup_sense('080601')
+c.execute('select * from cwn_pos')
+for cwn_pos in c.fetchall():
+    pos=cwn_pos[2]
+    print pos

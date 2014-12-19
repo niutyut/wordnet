@@ -1,6 +1,7 @@
 from sqlite3 import connect
 
-pos='n' # noun,verb,adj,adv
+pos='V' # N,V,A,D
+wn_pos='v' # n,v,a,r
 
 print '%08d' % 0,
 count=0
@@ -8,6 +9,7 @@ conn=connect('cwn_dirty.sqlite')
 c=conn.cursor()
 
 # begin with one sense (cwn_id) of a particular POS from cwn_pos table
+#c.execute('select * from cwn_pos where pos = "'+pos+'"')
 c.execute('select * from cwn_pos where pos like "%'+pos+'%"')
 processed_sense_ids=set()
 for cwn_pos in c.fetchall():
@@ -28,7 +30,7 @@ for cwn_pos in c.fetchall():
             sense_def=cwn_sense[2].encode('utf-8')
             count+=27+len(lemma_type)+len(sense_def)
             print '00',
-            print pos,
+            print wn_pos,
             print '01',
             print lemma_type,
             print '0',

@@ -1,3 +1,3 @@
 all ::
-	python data.py > data.noun
-	python index.py > index.noun
+	python data.py
+	python index.py
