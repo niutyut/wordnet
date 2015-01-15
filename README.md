@@ -8,6 +8,7 @@ Chinese Wordnet 的 Python NLTK 模組
 from nltk.corpus import wordnet
 
 wordnet.all_synsets()[0].definition   #nltk 2.0
+
 wordnet.all_synsets()[0].definition() #nltk 3.0
 
 CKIP 中研院斷詞服務
