@@ -15,15 +15,26 @@ for line in open('dict-revised.csv').readlines():
     if title not in moe_dict:moe_dict[title]=[definition]
     else:moe_dict[title].append(definition)
 
-sense_list=[]
 for word in cwn_dict:
     if word in moe_dict:
+        sense_list=cwn_dict[word]
+
         print 'cwn:'
-        for cwn_sense in cwn_dict[word]:
-            sense_list.append(cwn_sense)
-            print cwn_sense
+        for i in range(len(sense_list)):
+            print sense_list[i]
+
         print 'moe:'
         for moe_sense in moe_dict[word]:
-      #          if distance(cwn_sense,moe_sense)<12: #,'cwn:',cwn_sense,'moe:',moe_sense
             print moe_sense
-        break
+
+            flag=0
+            for i in range(len(sense_list)):
+                if distance(sense_list[i],moe_sense)<30:
+                    if flag:sense_list.pop(flag)
+                    else:flag=i
+
+        print 'merged:'
+        for sense in sense_list:
+            print sense
+
+        print
