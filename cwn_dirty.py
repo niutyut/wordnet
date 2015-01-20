@@ -40,5 +40,4 @@ for cwn_id,pos_sno,p in c.fetchall():
             sense_def=cwn_sense[2].encode('utf-8')
 #            print wn_pos,
 #            print p,
-            print lemma_type,
-            print ''.join(sense_def.split())
+            print lemma_type,',',''.join(sense_def.split())
