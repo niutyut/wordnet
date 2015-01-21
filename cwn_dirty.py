@@ -36,8 +36,11 @@ for cwn_id,pos_sno,p in c.fetchall():
         # fetch sense_def of this sense id from cwn_sense table
         c.execute('select * from cwn_sense where sense_id="'+sense_id+'"')
         cwn_sense=c.fetchone()
-        if cwn_sense:
+        c.execute('select * from cwn_example where cwn_id="'+cwn_id+'"')
+        cwn_example=c.fetchone()
+        if cwn_sense and cwn_example:
             sense_def=cwn_sense[2].encode('utf-8')
+            example_cont=cwn_example[2].strip().encode('utf-8')
 #            print wn_pos,
 #            print p,
-            print lemma_type,',',''.join(sense_def.split())
+            print lemma_type+','+''.join(sense_def.split())+','+example_cont
