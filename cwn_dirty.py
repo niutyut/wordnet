@@ -43,4 +43,5 @@ for cwn_id,pos_sno,p in c.fetchall():
             example_cont=cwn_example[2].strip().encode('utf-8')
 #            print wn_pos,
 #            print p,
-            print lemma_type+','+''.join(sense_def.split())+','+example_cont
+            if example_cont:
+                print lemma_type+','+''.join(sense_def.split())+','+example_cont
