@@ -1,4 +1,4 @@
-lines=open('plurk.vrt').readlines()
+lines=open('president.vrt').readlines()
 length=len(lines)
 i=0
 while i<length:
