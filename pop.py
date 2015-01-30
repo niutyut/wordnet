@@ -35,8 +35,9 @@ for line in open('CWNMOE-def-ex.csv').readlines():
 for lemma in d:
     i=0
     while i<len(d[lemma].keys()):
-#        print lemma,d[lemma].keys()[i]
-#        i+=1
+        print lemma,d[lemma].keys()[i]
+        i+=1
+'''
 
         j=0
         while j<i and j<len(d[lemma].keys()) and i<len(d[lemma].keys()):
@@ -55,3 +56,4 @@ for lemma in d:
 #for lemma in d:
 #    for definition in d[lemma]:print lemma,definition
 
+'''
