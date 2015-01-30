@@ -12,7 +12,7 @@ def cos_similar(v1,v2):
     if d>0:return d/sqrt(len1)/sqrt(len2)
     return 0
 
-plurks=[plurk.strip() for plurk in open('plurk.txt')]
+plurks=[plurk.strip() for plurk in open('asbc.txt')]
 
 d=dict() # {lemma:{definition:[lesk]}}
 for line in open('CWNMOE-def-ex.csv').readlines():
@@ -44,14 +44,14 @@ for lemma in d:
             v1,v2=d[lemma][def1],d[lemma][def2]
             if len(v1)==len(v2):
                 if cos_similar(v1,v2)>.5:
-                    print lemma,def1
-                    print lemma,def2
+#                    print lemma,def1
+ #                   print lemma,def2
                     d[lemma].pop(def1)
                     if i<len(d[lemma].keys()):continue
                 else:j+=1
             else:j+=1
         i+=1
 
-#for lemma in d:
-#    for definition in d[lemma]:print lemma,definition
+for lemma in d:
+    for definition in d[lemma]:print lemma,definition
 
