@@ -33,21 +33,22 @@ for line in open('CWNMOE-def-ex.csv').readlines():
 #    if flag:d[lemma]={definition:[0]}
 
 eval_matrix={} # {lemma:[definitions]}
-for lemma in d:
-    for definition in lemma:
-        if lemma not in eval_matrix:eval_matrix[lemma]=[definition]
-        else:eval_matrix[lemma].append(definition)
+#for lemma in d:
+ #   for definition in lemma:
+  #      if lemma not in eval_matrix:eval_matrix[lemma]=[definition]
+   #     else:eval_matrix[lemma].append(definition)
 
-for lemma in eval_matrix:
-    for definition in eval_matrix[lemma]:
-        print lemma,definition
+#for lemma in eval_matrix:
+ #   for definition in eval_matrix[lemma]:print lemma,definition
 
-'''
 for lemma in d:
     i=0
     while i<len(d[lemma].keys()):
-        print lemma,d[lemma].keys()[i]
+        defi=d[lemma].keys()[i]
+        print lemma,defi
 
+        if lemma not in eval_matrix:eval_matrix[lemma]=[defi]
+        else:eval_matrix[lemma].append(defi)
 
         j=0
         while j<i and j<len(d[lemma].keys()) and i<len(d[lemma].keys()):
@@ -57,14 +58,28 @@ for lemma in d:
                 if cos_similar(v1,v2)>.5:
 #                    print lemma,def1
  #                   print lemma,def2
-                    d[lemma].pop(def1)
+
+                    k=0
+                    for k in range(len(eval_matrix[lemma])):
+                        if eval_matrix[lemma][k].split(',')[0]==def1:
+                            eval_matrix[lemma][k]=def1+','+def2
+                        if eval_matrix[lemma][k].split(',')[0]==def2:
+                            eval_matrix[lemma].pop(k)
+
+                    eval_matrix[lemma]
                     d[lemma].pop(def1)
                     if i<len(d[lemma].keys()):continue
                 else:j+=1
             else:j+=1
         i+=1
 
-for lemma in d:
-    for definition in d[lemma]:print lemma,definition
+#for lemma in d:
+ #   for definition in d[lemma]:print lemma,definition
 
-'''
+for lemma in eval_matrix:
+    for definition in eval_matrix[lemma]:
+        if ',' in definition:
+            defis=definition.split(',')
+            print defis[0],',',defis[0]
+            for defi in defis[1:]:print defi
+
