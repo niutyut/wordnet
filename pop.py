@@ -32,12 +32,22 @@ for line in open('CWNMOE-def-ex.csv').readlines():
             flag=0
 #    if flag:d[lemma]={definition:[0]}
 
+eval_matrix={} # {lemma:[definitions]}
+for lemma in d:
+    for definition in lemma:
+        if lemma not in eval_matrix:eval_matrix[lemma]=[definition]
+        else:eval_matrix[lemma].append(definition)
+
+for lemma in eval_matrix:
+    for definition in eval_matrix[lemma]:
+        print lemma,definition
+
+'''
 for lemma in d:
     i=0
     while i<len(d[lemma].keys()):
         print lemma,d[lemma].keys()[i]
-        i+=1
-'''
+
 
         j=0
         while j<i and j<len(d[lemma].keys()) and i<len(d[lemma].keys()):
@@ -47,6 +57,7 @@ for lemma in d:
                 if cos_similar(v1,v2)>.5:
 #                    print lemma,def1
  #                   print lemma,def2
+                    d[lemma].pop(def1)
                     d[lemma].pop(def1)
                     if i<len(d[lemma].keys()):continue
                 else:j+=1
