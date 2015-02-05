@@ -34,7 +34,7 @@ for line in open('CWNMOE-def-ex.csv').readlines():
 
 eval_matrix={} # {lemma:[[def1,history,...],[def2,history,...]]}
 for lemma in d:
-    for definition in lemma:
+    for definition in d[lemma]:
         if lemma not in eval_matrix:eval_matrix[lemma]=[[definition]]
         else:eval_matrix[lemma].append([definition])
 
